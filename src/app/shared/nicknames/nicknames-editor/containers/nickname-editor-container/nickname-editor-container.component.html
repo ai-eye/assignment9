@@ -1,0 +1,35 @@
+<div class="container w-100">
+    <div class="card">
+        <div class="card-header split-left-and-right">
+            <div><h3 style="display: inline-flex">Nicknames</h3></div>
+            <div><button type="button" class="btn btn-info pull-right" (click)="onAddNicknameClick()">Add a nickname</button></div>
+        </div>
+
+        <div class="panel-body">
+            <div class="container">
+                <br />
+                <form [formGroup]="fg" (ngSubmit)="onSubmit()">
+                    <div formArrayName="fa" *ngFor="let a of fa.controls; let ix = index">
+                        <div class="form-group">
+                            <input class="form-control" [formControlName]="ix"  type="text" placeholder="Enter Nickname" name="nickname" [ngClass]="{'is-invalid' : grabControl(ix).errors}">
+
+                            <div *ngIf="grabControl(ix).errors?.isDuplicate" name="validatorisduplicate"
+                                class="invalid-feedback">
+                                Nickname must be unique</div>
+                            <div *ngIf="grabControl(ix).errors?.notStartsWithA" name="validatornotstartsa"
+                                class="invalid-feedback">
+                                Nickname must start with 'a'.</div>
+                        </div>
+                    </div>
+                    <div *ngIf="fa.controls.length === 0">
+                        <p>No nicknames are currently setup, click add a nickname to create one.</p>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [disabled]="fg.invalid" name="savebutton"
+                            class="btn btn-primary">SAVE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

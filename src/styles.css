@@ -1,0 +1,22 @@
+.invalid-feedback-custom {
+  color: red;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+}
+
+div.split-left-and-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=styles.css.map */
+
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
